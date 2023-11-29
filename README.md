@@ -30,6 +30,10 @@ A game where the player will slash fruit as they apears on screen. Player's scor
 
 ***
 
+[Pseudo code](./pseudo/pseudo.txt)
+
+***
+
 ### **_Wireframes_**
 
 #### Game Start
