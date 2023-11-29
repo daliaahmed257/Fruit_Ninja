@@ -1,0 +1,35 @@
+VARIABLES:
+
+    const fruit;
+    const bomb;
+    let randomItem;
+    const buttonStart;
+    let score = 0;
+    let lives = 3
+
+EVENT LISTENERS:
+
+    click button to start game
+    click down on fruit to score point
+    click down on bomb to lose game
+    click button to start over
+
+FUNCTIONS
+
+    const gameInit = () => {
+        lives = 3
+        score = 0
+
+        itemAppear()
+    }
+
+
+    const itemAppear = () => {
+        fruit position on screen random
+            set time out 
+                random time between 3 - 6 seconds
+
+        bomb position on screen random
+            set time out 
+                random time between 3 - 6 seconds
+    }

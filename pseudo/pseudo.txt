@@ -1,0 +1,52 @@
+MVP: SINGLE FRUIT SINGLE BOMB
+
+    User clicks start game:
+
+        GAME INIT
+            -set lives to 3
+            -set score at 0
+
+       FRUIT APPEARS AND DISAPPERS
+            -select random position of screen for fruit to appear
+            -set time out:
+                hide fruit after random time between 3 and 6 seconds
+                    -if fruit not clickdown: lives minus 1
+
+        BOMB APPEARS and DISAPPERS
+            -select random position of screen for bomb to appear
+            -set time out:
+                hide bomb after random time between 3 and 6 seconds
+                    -if bomb clickddown: game over
+
+    If user clicks down on fruit element 
+
+        UPDATE SCORE
+            -add 10 to score for every user click down on fruit
+
+        UPDATE FRUIT
+            -fruit updates color to indicate hit
+            -set time out:
+                hide fruit after one second
+        
+    if User clicks down on bomb element
+
+        UPDATE BOMB
+            -bomb element hide
+            -explode element shown
+            -game over
+            
+        GAME OVER
+            -if lives equal 0 or bomb clicked
+                -final score board appear
+                -start over button appear
+
+
+    user clicks start over:
+
+         GAME INIT
+
+
+POST MVP FEATURES
+    -multiple fruit appear and disappear
+    -animate fruits and bomb to apear from bottom of screen
+    -when fruit is sliced have splat apear and disappear and then show fruit sliced in half
