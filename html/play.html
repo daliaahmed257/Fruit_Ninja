@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Ninja Play</title>
+    <link rel="stylesheet" href="../css/play-style.css">
+    <script defer src="../script.js"></script>
+</head>
+<body>
+    <header>
+        <div id="score">
+            <h3>SCORE</h3>
+            <h2 id="score-num">0</h2>
+        </div>
+        <div id="lives">
+            <h3>LIVES</h3>
+            <img class="heartfill" id="heartfill-3" src="../images/icons/heart-fill.svg">
+            <img class="heartfill" id="heartfill-2" src="../images/icons/heart-fill.svg">
+            <img class="heartfill" id="heartfill-1" src="../images/icons/heart-fill.svg">
+            <img class="heart-outline" id="heart-outline-3" src="../images/icons/heart-outline.svg">
+            <img class="heart-outline" id="heart-outline-2" src="../images/icons/heart-outline.svg">
+            <img class="heart-outline" id="heart-outline-1" src="../images/icons/heart-outline.svg">
+        </div>
+    </header>
+    <hr>
+    <section id="board">
+        <div class="fruit item" id="apple"></div>
+        <div class="fruit item" id="strawberry"></div>
+        <div class="fruit item" id="banana"></div>
+        <div class="bomb item"></div>
+    </section>
+
+    <div id="modal">
+        <h1>GAME OVER</h1>
+        <h2 id="score-title">FINAL SCORE: <span id="final-score">XX</span></h2>
+        <button><h2>PLAY AGAIN</h2></button>
+    </div>
+</body>
+</html>

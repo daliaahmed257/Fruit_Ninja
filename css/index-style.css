@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #4B4C1D;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 10vmin;
+}
+
+#content {
+    display: flex;
+    gap: 5vmin;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-btn {
+    border: solid #7DE674 2vmin;
+    border-radius: 100%;
+    padding: 4vmin;
+}
+
+#start-btn:hover {
+    background-color: green;
+    color: white;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h3 {
+    width: 40vmin;
+}

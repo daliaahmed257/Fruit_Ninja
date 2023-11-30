@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* margin: 10vmin; */
+    padding: 0;
+    font-family: sans-serif;
+    /* background-color: black; */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5vmin 0 5vmin;
+    background-color: white;
+}
+
+.heartfill {
+    height: 3vmin;
+    width: 3vmin;
+}
+
+.heart-outline {
+    display: none;
+    height: 3vmin;
+    width: 3vmin;
+}
+
+hr {
+    height: 5px;
+    background-color: black;
+    margin: 0;
+}
+
+#board {
+    height: 85vh;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.fruit {
+    background-color: #7DE674;
+    height: 12vmin;
+    width: 12vmin;
+    border-radius: 100%;
+}
+
+.bomb {
+    background-color: #F44D61;
+    height: 10vmin;
+    width: 10vmin;
+    border-radius: 100%;
+}
+
+#modal {
+    background-color: lightgray;
+    border-radius: 32px;
+    text-align: center;
+    padding: 4vmin;
+    width: 50vmin;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none;
+}
+
+#modal > h1, #score-title {
+    margin-bottom: 4vmin;
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 16px;
+    background-color: rgb(234, 233, 233);
+
+}
+
+button:hover {
+    background-color: darkgrey;
+}

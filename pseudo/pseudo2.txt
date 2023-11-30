@@ -23,8 +23,7 @@ FUNCTIONS
         itemAppear()
     }
 
-
-    const itemAppear = () => {
+    const itemTimer = () => {
         fruit position on screen random
             set time out 
                 random time between 3 - 6 seconds
@@ -33,3 +32,9 @@ FUNCTIONS
             set time out 
                 random time between 3 - 6 seconds
     }
+
+    const updateScore = () => {
+        score += 10;
+    }
+
+    
