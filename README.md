@@ -54,4 +54,4 @@ A game where the player will slash fruit as they apears on screen. Player's scor
 
 ### **_Credits_**
 
-[creating random position for elements][https://replit.com/talk/ask/JS-place-image-on-random-coordinates/48068]
+[animation pop][https://css-tricks.com/playing-with-particles-using-the-web-animations-api/#aa-step-4-animate-each-particle]

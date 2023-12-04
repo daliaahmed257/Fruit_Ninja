@@ -15,26 +15,42 @@
         </div>
         <div id="lives">
             <h3>LIVES</h3>
-            <img class="heartfill" id="heartfill-3" src="../images/icons/heart-fill.svg">
-            <img class="heartfill" id="heartfill-2" src="../images/icons/heart-fill.svg">
-            <img class="heartfill" id="heartfill-1" src="../images/icons/heart-fill.svg">
-            <img class="heart-outline" id="heart-outline-3" src="../images/icons/heart-outline.svg">
-            <img class="heart-outline" id="heart-outline-2" src="../images/icons/heart-outline.svg">
-            <img class="heart-outline" id="heart-outline-1" src="../images/icons/heart-outline.svg">
+            <img class="heartfill" id="heartfill-3" src="../images/icons/heart-fill-white.svg">
+            <img class="heartfill" id="heartfill-2" src="../images/icons/heart-fill-white.svg">
+            <img class="heartfill" id="heartfill-1" src="../images/icons/heart-fill-white.svg">
+            <img class="heart-outline" id="heart-outline-3" src="../images/icons/heart-outline-white.svg">
+            <img class="heart-outline" id="heart-outline-2" src="../images/icons/heart-outline-white.svg">
+            <img class="heart-outline" id="heart-outline-1" src="../images/icons/heart-outline-white.svg">
         </div>
     </header>
-    <hr>
+    <!-- <hr> -->
     <section id="board">
-        <div class="fruit item" id="apple"></div>
-        <div class="fruit item" id="strawberry"></div>
-        <div class="fruit item" id="banana"></div>
-        <div class="bomb item"></div>
+        <div class="item-container"><img class="fruit item" id="apple" src="../images/fruits/apple.svg"></div>
+        <div class="item-container"><img class="fruit item" id="strawberry" src="../images/fruits/strawberry.svg"></div>
+        <div class="item-container">
+            <img class="bomb item" src="../images/fruits/bomb.svg">
+            <img class="bomb item explode" src="../images/fruits/explosion.svg">
+        </div>
+        <div class="item-container"><img class="fruit item" id="banana" src="../images/fruits/banana.svg"></div>
+        <div class="item-container">
+            <img class="bomb item" id="bomb1" src="../images/fruits/bomb.svg">
+            <img class="bomb item explode" id="bomb2" src="../images/fruits/explosion.svg">
+        </div>
+        <div class="item-container"><img class="fruit item" id="mango" src="../images/fruits/mango.svg"></div>
     </section>
+
+    <audio id="fruit-audio">
+        <source src="../audios/squash.wav" type="audio/wav">
+    </audio>
+    <audio id="bomb-audio">
+        <source src="../audios/bomb3.wav" type="audio/wav">
+    </audio>
 
     <div id="modal">
         <h1>GAME OVER</h1>
         <h2 id="score-title">FINAL SCORE: <span id="final-score">XX</span></h2>
         <button><h2>PLAY AGAIN</h2></button>
     </div>
+
 </body>
 </html>

@@ -7,13 +7,21 @@ body {
     padding: 0;
     font-family: sans-serif;
     /* background-color: black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     padding: 0 5vmin 0 5vmin;
-    background-color: white;
+    background-color: #274731;
+    /* border: 2px solid black; */
+    width: 80vmin;
+    color: white;
 }
 
 .heartfill {
@@ -33,25 +41,49 @@ hr {
     margin: 0;
 }
 
+.item {
+    overflow: hidden;
+}
+
 #board {
-    height: 85vh;
-    background-color: white;
-    border: 2px solid black;
+    height: 600px;
+    width: 80vmin;
+    background-color: #EBF5F2;
+    border: 2vmin solid #274731;
+    position: relative;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.item {
+    overflow: hidden;
+    visibility: hidden;
 }
 
 .fruit {
-    background-color: #7DE674;
+    /* background-color: #7DE674; */
     height: 12vmin;
     width: 12vmin;
     border-radius: 100%;
 }
 
+#strawberry {
+    height: 8vmin;
+
+}
+
+#mango {
+    height: 14vmin;
+}
+
 .bomb {
-    background-color: #F44D61;
+    /* background-color: #F44D61; */
     height: 10vmin;
     width: 10vmin;
     border-radius: 100%;
+    transition: opacity 0.5s ease-in-out;
 }
+
 
 #modal {
     background-color: lightgray;
@@ -81,4 +113,17 @@ button {
 
 button:hover {
     background-color: darkgrey;
+}
+
+.item-container {
+    display: inline-block;
+}
+
+.particle {
+    border-radius: 50%;
+    left: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    opacity: 0;
 }
