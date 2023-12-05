@@ -27,6 +27,10 @@ const fruits = ['apple', 'strawberry', 'banana', 'grape']
 const boardHeight = board.clientHeight;
 const boardWidth = board.clientWidth;
 
+const modalContainer = document.getElementById('modal-container')
+
+const fruitContainer = document.querySelectorAll('fruit-container')
+
 
 
 /*----- state variables -----*/
@@ -37,67 +41,166 @@ let score = 0;
 let fruitNum = 0;
 let bombNum = 0;
 let gameActive = true;
-/*----- event listeners -----*/
-
-
 let counter = 0;
 /*----- functions -----*/
 
-// Creates random number between a minimum and max
+// fruitEls.forEach(fruit => {
+//   fruit.addEventListener('mouseenter', () => {
+//   wasHit = true;
+//   console.log('fruit was hit')
+// })
+// })
+
+
+// Creates random number between a minimum and max for setting items positions
 const randomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+ let wasHit;
+
+// fruitEls.forEach(fruit => {
+//   fruit.addEventListener('mouseenter', ()=> {
+//     wasHit = true;
+//     console.log('fruit was hit')
+//   });
+// })
+
+
 // set initial position of fruits and bomb
-const setInitialPosition = (items) => {
+const newSetInitialPosition = (items) => {
     items.forEach((item) => {
-        setTimeout(() => {
-            item.style.visibility = 'visible'
+
+      //Gives a random start time for each item
+         setTimeout(() => {
+          const itemsChild = item.querySelector('.item')
             const itemWidth = item.clientWidth
+            const boardWidth = board.clientWidth
+            
             item.style.position = "absolute";
             item.style.top = "0px";
+            itemsChild.style.visibility = 'visible'
             item.style.left = randomNum(0, boardWidth - itemWidth) + "px";
-        }, 3000);
+            //wasHit = false;
+
+      //adds 4 to to items top position    
+        const updatePosition = () => {
+          const currentPosition = parseInt(item.style.top);
+          const newPosition = currentPosition + 4
+          const itemHeight = item.clientHeight;
+          const itemWidth = item.clientWidth;
+          
+          //hides items once they reach the bottom waiting to start at top again & lose life if they reach bottom
+          if (newPosition >= board.clientHeight - itemHeight) {
+            itemsChild.style.visibility = 'hidden';
+            console.log(wasHit)
+              // if (!wasHit && !itemsChild.src.endsWith('bomb.svg')) {
+              //   console.log('lose a life');
+              //   lives = lives - 1;
+              //   console.log(lives)
+              //   //wasHit = true;
+              // }
+         }
+
+         //moves item down until the end of the board by recursively calling animation
+          if (newPosition < board.clientHeight - itemHeight) {
+            item.style.top = newPosition + 'px';
+             if (itemsChild.src.endsWith('explosion.svg')) {
+              setTimeout(() => {
+                itemsChild.src = '../images/fruits/bomb.svg'
+              }, 500)
+             }
+              requestAnimationFrame(updatePosition)
+          }
+        }
+        //initiates animation loop
+        requestAnimationFrame(updatePosition);
+      }, randomNum(2000, 4000));
     })
+
 }
+//newSetInitialPosition(itemsContainer)
 
-setInitialPosition(itemsContainer);
-
-//updates position during the animation
-updatePosition = (items) => {
-    if (gameActive) {
-        items.forEach((item) => {
-            const currentTop = parseInt(item.style.top);
-            const newTop = currentTop + randomNum(5, 15);
-            item.style.top = newTop + "px";
-    
-            const itemHeight = item.clientHeight;
-            const itemWidth = item.clientWidth;
-    
-            const itemsChild = item.querySelector('.item')
-            if (newTop > board.clientHeight - itemHeight) {
-                if (itemsChild.src.endsWith('explosion.svg')) {
-                  itemsChild.src = '../images/fruits/bomb.svg'
-                }
-                itemsChild.style.visibility = 'visible'
-                item.style.top = "0px";
-                item.style.left = randomNum(0, boardWidth - itemWidth) + "px";
-            }
-        })
-    }
-}
-
-//repeats the function to set interval every 50 milliseconds to similate 'falling'
-      setInterval(() => {
-        updatePosition(itemsContainer);
-    }, 80)
+//restarts animation every 3 seconds
+ setInterval(() => {
+    wasHit = false
+  newSetInitialPosition(itemsContainer);
+ }, 4000)
 
 
 
-// delay(itemsContainer);
 
 
-//mouse down on fruit scores point
+
+// const checkFruitPosition = () => {
+//   fruitEls.forEach((fruit) => {
+//     const fruitHeight = parseInt(fruit.style.top)
+//     if (fruitHeight >= board.clientHeight - fruit.clientHeight) {
+//       console.log('lose a life');
+//       lives = lives - 1;
+//     }
+//   })
+// }
+
+//PHYSICS??
+
+// set initial position of fruits and bomb
+// const newSetInitialPosition = (items) => {
+//     items.forEach((item) => {
+//          setTimeout(() => {
+//           const itemsChild = item.querySelector('.item')
+//             const itemWidth = item.clientWidth
+//             const boardWidth = board.clientWidth
+//             itemsChild.style.visibility = 'visible'
+//             item.style.position = "absolute";
+//             item.style.top = `${board.clientHeight}px`
+//             item.style.left = randomNum(0, boardWidth - itemWidth) + "px";
+
+//         const updatePosition = () => {
+//           const currentPosition = parseInt(item.style.top);
+//           let newPosition = currentPosition - 2
+//           const itemHeight = item.clientHeight;
+//           const itemWidth = item.clientWidth;
+          
+//         //   if (newPosition <= board.clientHeight - itemHeight) {
+//         //     itemsChild.style.visibility = 'hidden';
+//         //  }
+         
+//           if (newPosition > 0) {
+//             item.style.top = newPosition + 'px';
+//              if (itemsChild.src.endsWith('explosion.svg')) {
+//               setTimeout(() => {
+//                 itemsChild.src = '../images/fruits/bomb.svg'
+//               }, 500)
+//              }
+//               requestAnimationFrame(updatePosition)
+//           }
+//         }
+//         requestAnimationFrame(updatePosition);
+//       }, randomNum(1000, 4000));
+//     })
+
+//   }
+
+// setInterval(() => {
+//   wasHit = false
+//   newSetInitialPosition(itemsContainer)
+// }, 5000)
+
+// const positionUp = () => {
+  
+//   items.forEach(item => {
+//     item.style.top = `${randomNum(0, 400)}px`;
+//     item.style.left = `${randomNum(0, 400)}px`
+//   })
+// }
+
+// const positionDown = () => {
+//   items.forEach(item)
+// }
+
+
+//counter for points
 const scorePoint = (event) => {
 
     score += 10;
@@ -105,9 +208,9 @@ const scorePoint = (event) => {
     event.target.style.visibility = 'hidden';
 }
 
-//event listener to score point when hitting fruit
+//event listener for fruit elements
 fruitEls.forEach(fruit => {
-    fruit.addEventListener('mouseover', scorePoint)
+    fruit.addEventListener('mouseenter', scorePoint)
     if (document.body.animate) {
         fruit.addEventListener('mouseenter', pop);
       }
@@ -116,6 +219,17 @@ fruitEls.forEach(fruit => {
     })
 });
 
+
+const loseHeart = (items) => {
+  items.forEach(item => {
+    if (lives === 3) {
+      heartFill1.style.display = 'none';
+      heartOutline1.style.display = 'inline';
+  }
+})
+}
+
+//counter for losing a life
  const loseLife = (event) => {
     if (lives === 3) {
         heartFill1.style.display = 'none';
@@ -123,7 +237,7 @@ fruitEls.forEach(fruit => {
         event.target.src = '../images/fruits/explosion.svg'
         setTimeout(() => {
           event.target.style.visibility = 'hidden'
-        }, 500)
+        }, 300)
         lives = lives - 1
     } else if (lives === 2) {
             heartFill2.style.display = 'none';
@@ -131,7 +245,7 @@ fruitEls.forEach(fruit => {
             event.target.src = '../images/fruits/explosion.svg'
             setTimeout(() => {
               event.target.style.visibility = 'hidden'
-            }, 500)
+            }, 300)
             lives = lives -1
     } else if (lives === 1) {
             heartFill3.style.display = 'none';
@@ -139,7 +253,7 @@ fruitEls.forEach(fruit => {
             event.target.src = '../images/fruits/explosion.svg'
             setTimeout(() => {
               event.target.style.visibility = 'hidden'
-            }, 500)
+            }, 300)
             lives = lives - 1
     } if (lives < 1) {
         gameOver()
@@ -148,7 +262,7 @@ fruitEls.forEach(fruit => {
 
 
 
-//event listener to lose life if hit bomb
+//event listener for bomb elemnents
  bombEls.forEach(bomb => {
      bomb.addEventListener('mouseenter', loseLife)
      if (document.body.animate) {
@@ -159,13 +273,15 @@ fruitEls.forEach(fruit => {
      })
  });
 
+ //display game over
  const gameOver = () => {
     gameActive = false;
     modal.style.display = 'block';
+    modalContainer.style.display = 'block';
     finalScore.innerText = score;
  }
 
- //resets position after playagin click
+ //resets items position after play again click
  const resetPosition = () => {
     itemsContainer.forEach((item) => {
       item.style.visibility = 'visible'
@@ -176,8 +292,8 @@ fruitEls.forEach(fruit => {
     })
  }
 
- // game restarts
- const gameInit = () => {
+ // resets conditions for new game
+ const gameReset = () => {
     gameActive = true;
     lives = 3;
     heartFill1.style.display = 'inline';
@@ -189,13 +305,13 @@ fruitEls.forEach(fruit => {
     score = 0;
     scoreNum.innerText = 0;
     modal.style.display = 'none';
+    modalContainer.style.display = 'none';
     resetPosition();
  }
 
 
-
  //event listener to start game again
-playAgain.addEventListener('click', gameInit);
+playAgain.addEventListener('click', gameReset);
 
 
 
@@ -206,8 +322,7 @@ playAgain.addEventListener('click', gameInit);
 
 
 
-
-/*----- Fruit Slice Animation -----*/
+/*----- animation when hitting item -----*/
 
   function pop (e) {
     let popColor;

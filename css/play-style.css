@@ -12,6 +12,7 @@ body {
     justify-content: center;
     flex-direction: column;
     height: 100vh;
+    background-color: #274731;
 }
 
 header {
@@ -19,8 +20,8 @@ header {
     justify-content: space-between;
     padding: 0 5vmin 0 5vmin;
     background-color: #274731;
-    /* border: 2px solid black; */
-    width: 80vmin;
+    border: 2px solid black;
+    width: 725px;
     color: white;
 }
 
@@ -43,13 +44,15 @@ hr {
 
 .item {
     overflow: hidden;
+    visibility: hidden;
 }
 
 #board {
     height: 600px;
-    width: 80vmin;
+    width: 725px;
     background-color: #EBF5F2;
-    border: 2vmin solid #274731;
+    /* border: 2vmin solid #274731; */
+    border-top: 0;
     position: relative;
     align-items: center;
     margin: 0 auto;
@@ -57,7 +60,6 @@ hr {
 
 .item {
     overflow: hidden;
-    visibility: hidden;
 }
 
 .fruit {
@@ -84,9 +86,18 @@ hr {
     transition: opacity 0.5s ease-in-out;
 }
 
+#modal-container {
+    height: 600px;
+    width: 80vmin;;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    z-index: 1000;
+    display: none
+}
 
 #modal {
-    background-color: lightgray;
     border-radius: 32px;
     text-align: center;
     padding: 4vmin;
@@ -104,7 +115,7 @@ hr {
 }
 
 button {
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 16px;
     padding: 16px;
     background-color: rgb(234, 233, 233);
@@ -127,3 +138,24 @@ button:hover {
     top: 0;
     opacity: 0;
 }
+
+
+@media (max-width: 740px) {
+    header {
+        width: 500px;
+    }
+    #board {
+        width: 500px;
+    }
+}
+
+@media (max-width: 520px) {
+    header {
+        width: 400px;
+    }
+    #board {
+        width: 400px;
+    }
+}
+
+/* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/others/oth-8/oth702.cur), auto !important;} /* End https://www.cursors-4u.com */

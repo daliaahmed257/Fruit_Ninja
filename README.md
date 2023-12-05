@@ -55,3 +55,5 @@ A game where the player will slash fruit as they apears on screen. Player's scor
 ### **_Credits_**
 
 [animation pop][https://css-tricks.com/playing-with-particles-using-the-web-animations-api/#aa-step-4-animate-each-particle]
+
+[knife cursor][https://www.cursors-4u.com/cursor/2011/11/29/knife-7.html]
