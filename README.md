@@ -43,7 +43,7 @@ A game where the player will slash fruit as they apears on screen. Player's scor
 
 ![Image](./images/screens/wireframes.svg)
 
-#### Final Screens
+#### **_Final Screens_**
 ![Image](./images/screens/final%20screens.svg)
 
 ***
