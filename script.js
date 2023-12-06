@@ -3,9 +3,9 @@
 const fruitEls = document.querySelectorAll('.fruit');
 const bombEls = document.querySelectorAll('.bomb');
 const itemsContainer = document.querySelectorAll('.item-container')
-const board = document.getElementById('board')
 
 const startBtn = document.getElementById('start-btn')
+
 const scoreNum = document.getElementById('score-num');
 
 const heartFill3 = document.getElementById('heartfill-3');
@@ -16,19 +16,15 @@ const heartOutline3 = document.getElementById('heart-outline-3');
 const heartOutline2 = document.getElementById('heart-outline-2');
 const heartOutline1 = document.getElementById('heart-outline-1');
 
-const playAgain = document.querySelector('button');
-const finalScoreEl = document.getElementById('final-score')
-
 const fruitAudio = document.getElementById('fruit-audio')
 const bombAudio = document.getElementById('bomb-audio')
 
+const board = document.getElementById('board')
 const boardHeight = board.clientHeight;
 const boardWidth = board.clientWidth;
 
 const modalContainer = document.getElementById('modal-container')
-
-const fruitContainer = document.querySelectorAll('fruit-container')
-
+const playAgain = document.querySelector('button');
 const scoreTitle = document.getElementById('score-title')
 const highScoreTitle = document.getElementById('high-score')
 
@@ -42,42 +38,45 @@ let highScore = 0;
 
 /*----- functions -----*/
 
-// Creates random number between a minimum and max for setting items positions
+// Creates random number between min max
 const randomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
 // set initial position of fruits and bomb
-const newSetInitialPosition = (items) => {
+const setInitialPosition = (items) => {
     items.forEach((item) => {
 
       //Gives a random start time for each item
          setTimeout(() => {
-          const itemsChild = item.querySelector('.item')
-            const itemWidth = item.clientWidth
-            const boardWidth = board.clientWidth
+          const itemsChild = item.querySelector('.item');
+            const itemWidth = item.clientWidth;
+            const boardWidth = board.clientWidth;
             
             item.style.position = "absolute";
             item.style.top = "0px";
-            itemsChild.style.visibility = 'visible'
+            itemsChild.style.visibility = 'visible';
             item.style.left = randomNum(0, boardWidth - itemWidth) + "px";
 
-      //adds 4 to to items top position    
+      //moves item down 3 - 7 px continuously til bottom of board   
         const updatePosition = () => {
           const currentPosition = parseInt(item.style.top);
-          const newPosition = currentPosition + randomNum(3, 7)
+          const newPosition = currentPosition + 4
           const itemHeight = item.clientHeight;
-          const itemWidth = item.clientWidth;
-          
-          //hides items once they reach the bottom waiting to start at top again & lose life if they reach bottom
-          if (newPosition >= board.clientHeight - itemHeight) {
+          const boardHeight = board.clientHeight;
+
+          //hides items once they reach the bottom and bring item back to the top
+          if (newPosition >= boardHeight - itemHeight) {
             itemsChild.style.visibility = 'hidden';
             item.style.top = "0px";
+            console.log('fruit not hit')
          }
 
          //moves item down until the end of the board by recursively calling animation
-          if (newPosition < board.clientHeight - itemHeight) {
+          if (newPosition < boardHeight - itemHeight) {
             item.style.top = newPosition + 'px';
+
+            //changes explosion img back to bomb img after half a second if user hits bomb
              if (itemsChild.src.endsWith('explosion.svg')) {
               setTimeout(() => {
                 itemsChild.src = '../images/fruits/bomb.svg'
@@ -87,18 +86,20 @@ const newSetInitialPosition = (items) => {
           }
         }
         //initiates animation loop
-        requestAnimationFrame(updatePosition);
+        updatePosition()
       }, randomNum(1000, 5000));
     })
 }
 
+//restarts animation every 5 seconds
+  const restartAnimation = () => {
+    setInitialPosition(itemsContainer)
+    setTimeout(() => {
+      restartAnimation()
+    }, 5000)
+  }
 
-//restarts animation every 3 seconds
-  setInterval(() => {
-     wasHit = false
-   newSetInitialPosition(itemsContainer);
-  }, 5000)
-
+  restartAnimation();
 
 //counter for points
 const scorePoint = (event) => {
@@ -119,15 +120,6 @@ fruitEls.forEach(fruit => {
     })
 });
 
-
-const loseHeart = (items) => {
-  items.forEach(item => {
-    if (lives === 3) {
-      heartFill1.style.display = 'none';
-      heartOutline1.style.display = 'inline';
-  }
-})
-}
 
 //counter for losing a life
  const loseLife = (event) => {
@@ -172,10 +164,6 @@ const loseHeart = (items) => {
      })
  });
 
-// localStorage.setItem('userScore', score);
-// let highScore = localStorage.getItem('userScore');
-//highScore = parseInt(highScore)
-
 
  //display game over
  const gameOver = () => {
@@ -185,6 +173,7 @@ const loseHeart = (items) => {
     getHighScore();
  }
 
+ //storing and displaying highscore
  const getHighScore = () => {
   let finalScore = score;
 
@@ -228,9 +217,6 @@ const loseHeart = (items) => {
 
  //event listener to start game again
 playAgain.addEventListener('click', gameReset);
-
-
-
 
 
 
