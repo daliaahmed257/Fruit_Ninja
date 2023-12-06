@@ -13,6 +13,9 @@ A game where the player will slash fruit as they apears on screen. Player's scor
 
 ***
 
+### **_PLAY GAME_**
+[Fruit Ninja](https://simplefruitninja.surge.sh/)
+
 ### **_Technologies Used_**
 
 - HTML
