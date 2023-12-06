@@ -9,7 +9,7 @@
 
 ### **_Description_**
 
-A game where the player will slash fruit as they apears on screen. Player's score will update based on how many fruit they are able to slash. The game ends when lives run out or when player hits a bomb instead of fruit.
+A game where the player will slash fruit as they apears on screen. Player's score will update based on how many fruit they are able to slash. The game ends when players hits bombs and their lives run out.
 
 ***
 
@@ -45,9 +45,6 @@ A game where the player will slash fruit as they apears on screen. Player's scor
 
 #### Game Over
 ![Image](./images/wireframes/GAME%20OVER.png)
-
-#### Assets
-![Image](./images/wireframes/ASSETS.png)
 
 ***
 

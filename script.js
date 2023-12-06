@@ -69,7 +69,6 @@ const setInitialPosition = (items) => {
           if (newPosition >= boardHeight - itemHeight) {
             itemsChild.style.visibility = 'hidden';
             item.style.top = "0px";
-            console.log('fruit not hit')
          }
 
          //moves item down until the end of the board by recursively calling animation
