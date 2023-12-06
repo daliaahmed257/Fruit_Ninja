@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fruit Ninja Play</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="../css/play-style.css">
     <script defer src="../script.js"></script>
@@ -24,7 +27,7 @@
             <img class="heart-outline" id="heart-outline-1" src="../images/icons/heart-outline-white.svg">
         </div>
     </header>
-    <!-- <hr> -->
+
     <section id="board">
         <div class="item-container fruit-container"><img class="fruit item" id="apple" src="../images/fruits/apple.svg"></div>
         <div class="item-container fruit-container"><img class="fruit item" id="strawberry" src="../images/fruits/strawberry.svg"></div>
@@ -39,11 +42,16 @@
         </div>
         <div class="item-container fruit-container"><img class="fruit item" id="orange" src="../images/fruits/orange.svg"></div>
         <div class="item-container fruit-container"><img class="fruit item" id="watermelon" src="../images/fruits/watermelon.svg"></div>
+        <div class="item-container">
+            <img class="bomb item" src="../images/fruits/bomb.svg">
+            <img class="bomb item explode" src="../images/fruits/explosion.svg">
+        </div>
         <div class="item-container fruit-container"><img class="fruit item" id="coconut" src="../images/fruits/coconut.svg"></div>
          <div class="item-container">
             <img class="bomb item" src="../images/fruits/bomb.svg">
             <img class="bomb item explode" src="../images/fruits/explosion.svg">
         </div>
+        
     </section>
 
     <audio id="fruit-audio">

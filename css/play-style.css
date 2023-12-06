@@ -13,6 +13,7 @@ body {
     flex-direction: column;
     height: 100vh;
     background-color: #4C7A5B;
+    font-family: 'Archivo Black', sans-serif;
 }
 
 header {
@@ -101,6 +102,7 @@ hr {
     transform: translate(-50%, -50%);
     z-index: 1000;
     display: none;
+    color: #274731;;
 }
 
 #modal > h1, #score-title {
@@ -108,15 +110,17 @@ hr {
 }
 
 button {
-    border: 3px solid black;
+    border: 5px solid #274731;
     border-radius: 16px;
     padding: 16px;
-    background-color: rgb(234, 233, 233);
+    background-color: #4C7A5B;
+    font-family: 'Archivo Black', sans-serif;
+    color: white;
 
 }
 
 button:hover {
-    background-color: darkgrey;
+    background-color: #274731;
 }
 
 .item-container {

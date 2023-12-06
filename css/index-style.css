@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -11,11 +12,24 @@ body {
     height: 100vh;
     color: #4B4C1D;
     font-family: sans-serif;
+    background-color: #4C7A5B;
+    display: flex;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+#container {
     background-color: #EBF5F2;
+    height: 600px;
+    width: 725px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 h1 {
-    font-size: 10vmin;
+    font-size: 8vmin;
+    text-align: center;
 }
 
 #content {
@@ -28,7 +42,14 @@ h1 {
 #start-btn {
     border: solid #7DE674 2vmin;
     border-radius: 100%;
-    padding: 4vmin;
+    padding: 65px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
 }
 
 #start-btn:hover {
@@ -39,9 +60,40 @@ h1 {
 a {
     color: inherit;
     text-decoration: none;
+    position: relative;
 }
+
+#btn-img {
+    position: absolute;
+    top: 1px;
+    height: 165px;
+}
+
 
 h3 {
     width: 40vmin;
 }
 
+h2 {
+    z-index: 1;
+    margin-bottom: 50px;
+}
+
+#description {
+    width: 30vmin;
+}
+
+@media (max-width: 740px) {
+    #container {
+        width: 500px;
+    }
+}
+
+@media (max-width: 520px) {
+    #container {
+        width: 400px;
+    }
+    #description {
+        font-size: 18px;
+    }
+}

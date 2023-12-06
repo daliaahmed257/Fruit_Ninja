@@ -22,8 +22,6 @@ const finalScoreEl = document.getElementById('final-score')
 const fruitAudio = document.getElementById('fruit-audio')
 const bombAudio = document.getElementById('bomb-audio')
 
-const fruits = ['apple', 'strawberry', 'banana', 'grape']
-
 const boardHeight = board.clientHeight;
 const boardWidth = board.clientWidth;
 
