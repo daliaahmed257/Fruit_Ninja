@@ -12,7 +12,7 @@ body {
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    background-color: #274731;
+    background-color: #4C7A5B;
 }
 
 header {
@@ -43,7 +43,6 @@ hr {
 }
 
 .item {
-    overflow: hidden;
     visibility: hidden;
 }
 
@@ -58,24 +57,18 @@ hr {
     margin: 0 auto;
 }
 
-.item {
-    overflow: hidden;
-}
-
 .fruit {
     /* background-color: #7DE674; */
     height: 12vmin;
     width: 12vmin;
-    border-radius: 100%;
 }
 
 #strawberry {
     height: 8vmin;
-
 }
 
-#mango {
-    height: 14vmin;
+#coconut {
+    height: 10vmin;
 }
 
 .bomb {
